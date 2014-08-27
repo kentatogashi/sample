@@ -1,2 +1,13 @@
-<h1>Firms#new</h1>
-<p>Find me in app/views/firms/new.html.erb</p>
+<h1>会社情報登録</h1>
+
+<div class="row">
+    <div>
+        <%= form_for(@firm) do |f| %>
+            <%= f.text_field :name %>
+            <%= f.text_field :president %>
+            <%= f.text_field :phone %>
+            <%= f.text_field :email %>
+            <%= f.submit %>
+        <% end %>
+    </div>
+</div>
