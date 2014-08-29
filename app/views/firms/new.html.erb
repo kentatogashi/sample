@@ -1,13 +1,6 @@
-<h1>会社情報登録</h1>
-
-<div class="row">
-    <div>
-        <%= form_for(@firm) do |f| %>
-            <%= f.text_field :name %>
-            <%= f.text_field :president %>
-            <%= f.text_field :phone %>
-            <%= f.text_field :email %>
-            <%= f.submit %>
-        <% end %>
-    </div>
+<%- model_class = Firm -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                 :default => "New #{model_class.model_name.human}") %></h1>
 </div>
+<%= render :partial => 'form' %>

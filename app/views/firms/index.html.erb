@@ -1,13 +1,42 @@
-<% provide(:title, 'All firms') %>
-<h1>All firms</h1>
-
-<ul class= "firms">
+<%- model_class = Firm -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:president) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
     <% @firms.each do |firm| %>
-        <li>
-        <%= firm.name %>,
-        <%= firm.president %>,
-        <%= firm.phone %>,
-        <%= firm.email %>,
-        </li>
+      <tr>
+        <td><%= link_to firm.id, firm_path(firm) %></td>
+        <td><%= firm.name %></td>
+        <td><%= firm.president %></td>
+        <td><%= firm.phone %></td>
+        <td><%= firm.email %></td>
+        <td><%=l firm.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_firm_path(firm), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      firm_path(firm),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
     <% end %>
-</ul>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_firm_path,
+            :class => 'btn btn-primary' %>
