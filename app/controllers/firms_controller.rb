@@ -1,4 +1,8 @@
 class FirmsController < ApplicationController
+    def index
+        @firms = Firm.all
+    end
+
     def show
         @firm = Firm.find(params[:id])
     end
@@ -13,6 +17,20 @@ class FirmsController < ApplicationController
             redirect_to @firm
         else
             render 'new'
+        end
+    end
+
+    def edit
+        @firm = Firm.find(params[:id])
+    end
+
+    def update
+        @firm = Firm.find(params[:id])
+        if @firm.update_attributes(firm_params)
+            flash[:success] = "Profile changed"
+            redirect_to @firm
+        else
+            render 'edit'
         end
     end
 

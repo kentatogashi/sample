@@ -1,0 +1,15 @@
+<% provide(:title, "Edit User") %>
+<h1>Update page</h1>
+<div class="row">
+    <%= form_for(@firm) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :president %>
+        <%= f.text_field :president %>
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= f.submit "Save changes" %>
+    <% end %>
+</div>

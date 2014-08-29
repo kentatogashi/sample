@@ -1,0 +1,13 @@
+<% provide(:title, 'All firms') %>
+<h1>All firms</h1>
+
+<ul class= "firms">
+    <% @firms.each do |firm| %>
+        <li>
+        <%= firm.name %>,
+        <%= firm.president %>,
+        <%= firm.phone %>,
+        <%= firm.email %>,
+        </li>
+    <% end %>
+</ul>
