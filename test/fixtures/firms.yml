@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  president_id: 1
   name: MyString
-  president: MyString
-  phone: MyString
-  email: MyString
+  address: MyString
+  telephone: MyString
+  business: MyString
+  note: MyText
 
 two:
+  president_id: 1
   name: MyString
-  president: MyString
-  phone: MyString
-  email: MyString
+  address: MyString
+  telephone: MyString
+  business: MyString
+  note: MyText

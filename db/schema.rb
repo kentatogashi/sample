@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827063711) do
+ActiveRecord::Schema.define(version: 20140829230739) do
 
   create_table "firms", force: true do |t|
+    t.integer  "president_id"
     t.string   "name"
-    t.string   "president"
-    t.string   "phone"
-    t.string   "email"
+    t.string   "address"
+    t.string   "telephone"
+    t.string   "business"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "presidents", force: true do |t|
+    t.string   "name"
+    t.binary   "icon"
+    t.string   "icon_content_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
