@@ -39,6 +39,10 @@ class FirmsController < ApplicationController
         redirect_to firms_url
     end
 
+    def card
+        render 'card'
+    end
+
     private
     def firm_params
         params.require(:firm).permit(:name, :address, :telephone,:business, :note)
