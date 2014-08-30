@@ -50,3 +50,4 @@ gem 'less-rails'
 
 # production on heroku
 gem 'pg', groups: %w(production), require: false
+gem 'rails_12factor'
