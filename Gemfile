@@ -50,7 +50,7 @@ gem 'less-rails'
 
 # production on heroku
 group :production do 
-    gem 'pg'
+    gem 'pg', :require => false
 end
 
 group :development, :test do
