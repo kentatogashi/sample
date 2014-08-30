@@ -47,3 +47,8 @@ gem 'twitter-bootstrap-rails'
 gem 'twitter-bootswatch-rails'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'less-rails'
+
+# production on heroku
+group :production do 
+    gem 'pg'
+end
