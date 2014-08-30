@@ -1,5 +1,4 @@
 class PresidentsController < ApplicationController
-    #before_action :index, :icon
     
     def index
         @presidents = President.all
@@ -43,6 +42,12 @@ class PresidentsController < ApplicationController
     def icon
         @president = President.find(params[:id])
         send_data(@president.icon, type: @president.icon_content_type, disposition: :inline)
+    end
+
+    def destroy 
+        @president = President.find(params[:id]).destroy
+        flash[:success] = "President destroyed"
+        redirect_to presidents_url
     end
 
     private

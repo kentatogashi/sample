@@ -34,6 +34,11 @@ class FirmsController < ApplicationController
         end
     end
 
+    def destroy
+        @firm = Firm.find(params[:id]).destroy
+        redirect_to firms_url
+    end
+
     private
     def firm_params
         params.require(:firm).permit(:name, :address, :telephone,:business, :note)
