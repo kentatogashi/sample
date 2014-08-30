@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', groups: %w(test development), require: false
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -49,11 +49,4 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'less-rails'
 
 # production on heroku
-group :production do 
-    gem 'pg', :require => false
-end
-
-group :development, :test do
-    gem 'sqlite3'
-    gem 'sqlite3-ruby', :require => 'sqlite3'
-end
+gem 'pg', groups: %w(production), require: false
