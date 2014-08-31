@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829230739) do
+ActiveRecord::Schema.define(version: 20140831215225) do
 
   create_table "firms", force: true do |t|
     t.integer  "president_id"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20140829230739) do
     t.string   "icon_content_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "presidents", ["user_id"], name: "index_presidents_on_user_id"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token"
+  end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

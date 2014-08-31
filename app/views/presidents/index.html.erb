@@ -37,7 +37,8 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_president_path,
-            :class => 'btn btn-primary' %>
+<% if @presidents.empty? %>
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+        new_president_path,
+        :class => 'btn btn-primary' %>
+<% end %>

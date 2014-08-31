@@ -1,7 +1,14 @@
 class PresidentsController < ApplicationController
     
     def index
-        @presidents = President.all
+        @presidents = President.where(:user_id  => current_user.id.to_i)
+        #@presidents = President.all
+        p "current_user is:"
+        p current_user
+        p "current_user is end"
+        p "presidents is:"
+        p @presidents
+        p "presidents is end"
     end
 
     def show
@@ -52,6 +59,6 @@ class PresidentsController < ApplicationController
 
     private
     def president_params
-        params.require(:president).permit(:name)
+        params.require(:president).permit(:name, :user_id)
     end
 end

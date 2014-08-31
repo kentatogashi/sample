@@ -9,6 +9,7 @@
   </div>
 
   <div class="form-actions">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 firms_path, :class => 'btn' %>
