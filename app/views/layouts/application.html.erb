@@ -31,6 +31,7 @@
           <a class="navbar-brand" href="#">Dummy Ojisan</a>
         </div>
         <div class="navbar-collapse collapse">
+            <% if signed_in? %>
           <ul class="nav navbar-nav">
               <li class="<%= 'active' if params[:controller] == 'top' %>">
               <%= link_to 'Home', { controller: :top, action: :index } %>
@@ -41,39 +42,44 @@
               <li class="<%= 'active' if params[:controller] == 'firms' %>">
               <%= link_to 'Firms', { controller: :firms, action: :index } %>
               </li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#card">Card</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+          </ul>
+          <% end %>
+              <ul class="nav navbar-nav navbar-right">
+              <li>
+              <%= link_to 'Help', '#' %>
+              </li>
+              <% if !signed_in? %>
+              <li>
+              <%=  link_to 'Sign in', signin_path  %>
+              </li>
+              <li>
+              <%=  link_to 'Sign up', signup_path %>
+              </li>
+              <% else %>
+              <li>
+               <%= link_to "Sign out", signout_path, method: "delete" %>
+              </li>
+              <% end %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
     <div class="container">
-        ::before
+        <div class="clearfix"><br><br></div>
         <%= yield %>
-        <p>Below is debug output...</p>
-        <%= debug(params) %>
         <footer>
             <div class="row">
                 <div class="col-lg-12">
+                    <hr>
                     <p>
                     Made by Kenta Togashi
                     </p>
                     <p>
                     This is desined with twitter bootstrap
                     </p>
+                    <p>Below is debug output...</p>
+                    <%= debug(params) %>
                 </div>
             </div>
         </footer>
