@@ -3,4 +3,7 @@
  *= require_self
  *= require flatly/loader
  *= require flatly/bootswatch
+ *= require flatly/metro-bootstrap.min
+ *= require flatly/metro-bootstrap-responsive.min
+ *= require flatly/iconFont.min
 */

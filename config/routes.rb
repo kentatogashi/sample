@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: 'top#index'
+  get 'firms/card'
   resources :firms
-  get 'firms/new'
+  #get 'firms/new'
   #resources :presidents
   resources :presidents do
       member { get :icon }
