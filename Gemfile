@@ -37,7 +37,7 @@ gem 'bcrypt-ruby', '3.1.2'
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]
 
 group :test do
     gem 'factory_girl_rails'
