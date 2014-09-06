@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831215225) do
+ActiveRecord::Schema.define(version: 20140831223147) do
 
   create_table "firms", force: true do |t|
     t.integer  "president_id"
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(version: 20140831215225) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "firms", ["user_id"], name: "index_firms_on_user_id"
 
   create_table "presidents", force: true do |t|
     t.string   "name"

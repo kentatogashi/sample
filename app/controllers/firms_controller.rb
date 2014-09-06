@@ -45,6 +45,6 @@ class FirmsController < ApplicationController
 
     private
     def firm_params
-        params.require(:firm).permit(:name, :address, :telephone,:business, :note)
+        params.require(:firm).permit(:name, :address, :telephone,:business, :note, :president_id)
     end
 end
