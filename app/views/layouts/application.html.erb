@@ -78,8 +78,10 @@
                     <p>
                     Desined with twitter bootstrap mainly 
                     </p>
+		    <% if Rails.env.development? %>
                     <p>Below is debug output...</p>
                     <%= debug(params) %>
+		    <% end %>
                 </div>
             </div>
         </footer>
