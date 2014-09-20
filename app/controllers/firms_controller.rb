@@ -1,6 +1,6 @@
 class FirmsController < ApplicationController
     def index
-        @firms = Firm.all
+        @firms = Firm.where(:user_id => current_user.id.to_i) 
     end
 
     def show
@@ -12,7 +12,8 @@ class FirmsController < ApplicationController
 
     def create 
         @firm = Firm.new(firm_params)
-        if @firm.save
+        @firm.user_id = current_user.id.to_i
+        if @firm.save 
             flash[:success] = "Welcome to the sample App!!"
             redirect_to @firm
         else
