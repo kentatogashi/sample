@@ -32,12 +32,13 @@
         </div>
         <div class="navbar-collapse collapse">
             <% if signed_in? %>
+              <a class="navbar-brand"><%= current_user.name %></a>
           <ul class="nav navbar-nav">
               <li class="<%= 'active' if params[:controller] == 'top' %>">
               <%= link_to 'Home', { controller: :top, action: :index } %>
               </li>
               <li class="<%= 'active' if params[:controller] == 'presidents' %>">
-              <%= link_to 'Presidents', { controller: :presidents, action: :index } %>
+              <%= link_to 'President', { controller: :presidents, action: :index } %>
               </li>
               <li class="<%= 'active' if params[:controller] == 'firms' %>">
               <%= link_to 'Firms', { controller: :firms, action: :index } %>
@@ -65,25 +66,42 @@
       </div>
     </div>
 
+    <style>
+footer {
+  color: #737373;
+  font-size: 11px;
+  margin: 0 auto;
+  width: 980px;
+}
+#cushion {
+  border-bottom: 1px solid #ccc;
+  font-size: 1px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+#copy_right {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#copy_right span {
+  color: gray;
+}
+
+#headercushion {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+    </style>
     <div class="container">
-        <div class="clearfix"><br><br></div>
+      <div id="headercushion"></div>
         <%= yield %>
         <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <hr>
-                    <p>
-                    Made by Kenta Togashi
-                    </p>
-                    <p>
-                    Desined with twitter bootstrap mainly 
-                    </p>
-		    <% if Rails.env.development? %>
-                    <p>Below is debug output...</p>
-                    <%= debug(params) %>
-		    <% end %>
-                </div>
-            </div>
+          <div id="cushion"></div>
+          <div id="copy_right">
+            <span>Dummy Ojisan © 2014</span>
+          </div>
         </footer>
     </div> <!-- /container -->
 

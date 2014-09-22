@@ -22,7 +22,7 @@
       <tr>
         <td><%= link_to president.id, president_path(president) %></td>
         <td><%= president.name %></td>
-        <td><%= image_tag icon_president_path(president) %></td>
+        <td><%= image_tag icon_president_path(president), :size => "120x120" %></td>
         <td><%= president.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

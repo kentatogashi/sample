@@ -5,6 +5,7 @@ class FirmsController < ApplicationController
 
     def show
         @firm = Firm.find(params[:id])
+        @presidents = President.where(:user_id  => current_user.id.to_i)
     end
     def new
         @firm = Firm.new
