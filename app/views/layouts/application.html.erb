@@ -33,18 +33,26 @@
         <div class="navbar-collapse collapse">
             <% if signed_in? %>
               <a class="navbar-brand"><%= current_user.name %></a>
+            <% end %>
           <ul class="nav navbar-nav">
               <li class="<%= 'active' if params[:controller] == 'top' %>">
               <%= link_to 'Home', { controller: :top, action: :index } %>
               </li>
+              <li>
+              <%= link_to 'About', '#' %>
+              </li>
+              <li>
+              <%= link_to 'News', '#' %>
+              </li>
+            <% if signed_in? %>
               <li class="<%= 'active' if params[:controller] == 'presidents' %>">
               <%= link_to 'President', { controller: :presidents, action: :index } %>
               </li>
               <li class="<%= 'active' if params[:controller] == 'firms' %>">
               <%= link_to 'Firms', { controller: :firms, action: :index } %>
               </li>
+            <% end %>
           </ul>
-          <% end %>
               <ul class="nav navbar-nav navbar-right">
               <li>
               <%= link_to 'Help', '#' %>
