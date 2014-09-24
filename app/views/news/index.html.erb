@@ -2,17 +2,30 @@
 <style>
 .news_wrapper {
   margin: 0 auto;
+  position: relative;
   text-align: center;
+}
+.news_inner {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.news_inner p {
+  text-align: left;
 }
 </style>
 <div class="news_wrapper">
 <h2>News</h1>
+<div class="news_inner">
 <% @news.each do |line| %>
   <% 
       d = line.created_at.to_s.split
 %>
   <p><strong><%= d[0] %></strong>    <%= line.news %></p>
 <% end %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-  new_news_path, :class => "btn btn-primary" %>
+<% if current_user && current_user.name == 'admin_user' %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+    new_news_path, :class => "btn btn-primary" %>
+<% end %>
+    </div>
 </div>
