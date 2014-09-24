@@ -1,7 +1,18 @@
 <%- model_class = News -%>
-<h1>News</h1>
+<style>
+.news_wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+</style>
+<div class="news_wrapper">
+<h2>News</h1>
 <% @news.each do |line| %>
-  <p><strong><%= line.created_at %></strong>    <%= line.news %></p>
+  <% 
+      d = line.created_at.to_s.split
+%>
+  <p><strong><%= d[0] %></strong>    <%= line.news %></p>
 <% end %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
   new_news_path, :class => "btn btn-primary" %>
+</div>
