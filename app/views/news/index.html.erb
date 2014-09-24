@@ -1,2 +1,7 @@
-<h1>News#index</h1>
-<p>Find me in app/views/news/index.html.erb</p>
+<%- model_class = News -%>
+<h1>News</h1>
+<% @news.each do |line| %>
+  <p><strong><%= line.created_at %></strong>    <%= line.news %></p>
+<% end %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+  new_news_path, :class => "btn btn-primary" %>

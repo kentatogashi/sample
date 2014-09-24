@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'news' => 'news#index'
+  resource :news, only: [:new, :create]
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

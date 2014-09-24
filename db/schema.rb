@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831223147) do
+ActiveRecord::Schema.define(version: 20140923020456) do
 
   create_table "firms", force: true do |t|
     t.integer  "president_id"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20140831223147) do
   end
 
   add_index "firms", ["user_id"], name: "index_firms_on_user_id"
+
+  create_table "news", force: true do |t|
+    t.string   "news"
+    t.string   "last_modified"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "presidents", force: true do |t|
     t.string   "name"
