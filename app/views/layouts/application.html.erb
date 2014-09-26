@@ -39,15 +39,12 @@
               <%= link_to 'Home', { controller: :top, action: :index } %>
               </li>
               <li>
-              <%= link_to 'About', '#' %>
+              <%= link_to 'About', { controller: :about, action: :index } %>
               </li>
               <li class="<%= 'active' if params[:controller] == 'news' %>">
               <%= link_to 'News', news_path %>
               </li>
             <% if signed_in? %>
-              <li class="<%= 'active' if params[:controller] == 'presidents' %>">
-              <%= link_to 'President', { controller: :presidents, action: :index } %>
-              </li>
               <li class="<%= 'active' if params[:controller] == 'firms' %>">
               <%= link_to 'Firms', { controller: :firms, action: :index } %>
               </li>
@@ -55,7 +52,7 @@
           </ul>
               <ul class="nav navbar-nav navbar-right">
               <li>
-              <%= link_to 'Help', '#' %>
+              <%= link_to 'Help', { controller: :help, action: :index } %>
               </li>
               <% if !signed_in? %>
               <li>
