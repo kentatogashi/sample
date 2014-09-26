@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-git push git@heroku.com:dummy-ojisan.git master
-heroku run rake db:migrate --app dummy-ojisan
+git push git@heroku.com:dummy-ojisan.git master &&
+heroku run rake db:migrate --app dummy-ojisan &&
+git push origin master
