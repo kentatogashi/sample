@@ -38,7 +38,7 @@
               <li class="<%= 'active' if params[:controller] == 'top' %>">
               <%= link_to 'Home', { controller: :top, action: :index } %>
               </li>
-              <li>
+              <li class="<%= 'active' if params[:controller] == 'about' %>">
               <%= link_to 'About', { controller: :about, action: :index } %>
               </li>
               <li class="<%= 'active' if params[:controller] == 'news' %>">
@@ -51,7 +51,7 @@
             <% end %>
           </ul>
               <ul class="nav navbar-nav navbar-right">
-              <li>
+              <li class="<%= 'active' if params[:controller] == 'help' %>">
               <%= link_to 'Help', { controller: :help, action: :index } %>
               </li>
               <% if !signed_in? %>
