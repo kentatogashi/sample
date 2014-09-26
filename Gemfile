@@ -56,3 +56,5 @@ gem 'rails_12factor'
 group :development do
 gem 'guard-livereload'
 end
+
+gem 'resources_id_replace'

@@ -7,6 +7,8 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:president) %></th>
+      <th><%= model_class.human_attribute_name(:icon) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:telephone) %></th>
       <th><%= model_class.human_attribute_name(:business) %></th>
@@ -25,6 +27,8 @@
       <tr>
         <td><%= link_to firm.id, firm_path(firm) %></td>
         <td><%= firm.name %></td>
+        <td><%= firm.president %></td>
+        <td><%= image_tag icon_firm_path(firm), :size => "120x120" %></td>
         <td><%= firm.address %></td>
         <td><%= firm.telephone %></td>
         <td><%= firm.business %></td>

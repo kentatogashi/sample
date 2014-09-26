@@ -14,6 +14,9 @@ class FirmsController < ApplicationController
     def create 
         @firm = Firm.new(firm_params)
         @firm.user_id = current_user.id.to_i
+        @firm.icon = params[:firm][:icon].read
+        @firm.icon_content_type = params[:firm][:icon].content_type
+
         if @firm.save 
             flash[:success] = "Welcome to the sample App!!"
             redirect_to @firm
@@ -36,6 +39,11 @@ class FirmsController < ApplicationController
         end
     end
 
+    def icon
+      @firm = Firm.find(params[:id])
+      send_data(@firm.icon, type: @firm.icon_content_type, disposition: :inline)
+    end
+
     def destroy
         @firm = Firm.find(params[:id]).destroy
         redirect_to firms_url
@@ -47,6 +55,6 @@ class FirmsController < ApplicationController
 
     private
     def firm_params
-        params.require(:firm).permit(:name, :address, :telephone,:business, :note, :president_id)
+        params.require(:firm).permit(:name, :address, :telephone,:business, :note, :president)
     end
 end

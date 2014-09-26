@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :cards, only: [:show], :replace_id_with => 'name'
+  get 'cards/index'
+
+  get 'cards/show'
+
   get 'news' => 'news#index'
   resource :news, only: [:new, :create]
 
@@ -10,8 +15,8 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
   get 'firms/card'
   resources :firms
-  #resources :presidents
-  resources :presidents do
+  resources :presidents
+  resources :firms do
       member { get :icon }
   end
 
