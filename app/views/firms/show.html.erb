@@ -131,6 +131,10 @@
   background: #2C2C2C;
 }
 
+#icon_img {
+  text-align: center;
+}
+
 </style>
 
 <%- model_class = Firm -%>
@@ -174,12 +178,17 @@
   <div id="smartphone">
     <div id="icon-wrapper">
       <div id="icon-wrapper-inner">
-        <div id="icon">
-        </div>
+        <% if @firm.icon %>
+          <div id="icon_img">
+        <%= image_tag icon_firm_path(@firm), size: "120x120" %>
+      </div>
+      <% else %>
+          <div id="icon"></div>
+      <% end %>
       </div>
     </div>
     <ul id="menu">
-      <li><a href ="#">President: <%= @presidents[0].name %></a></li>
+      <li><a href ="#">President: <%= @firm.president %></a></li>
       <li><a href ="#">Company: <%= @firm.name %></a></li>
       <li><a href ="#">Business: <%= @firm.business %></a></li>
       <li><a href ="#">Address: <%= @firm.address %></a></li>
