@@ -18,5 +18,5 @@ after_fork do |server, worker|
   end
 
   defined?(ActiveRecord::Base) and
-    ActiveRecord::BAse.establish_connection
+    ActiveRecord::Base.establish_connection
 end
