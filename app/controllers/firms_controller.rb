@@ -15,6 +15,7 @@ class FirmsController < ApplicationController
         @firm.user_id = current_user.id.to_i
         @firm.icon = params[:firm][:icon].read
         @firm.icon_content_type = params[:firm][:icon].content_type
+        @firm.parse_string = key_str
 
         if @firm.save 
             flash[:success] = "Welcome to the sample App!!"
@@ -55,5 +56,9 @@ class FirmsController < ApplicationController
     private
     def firm_params
         params.require(:firm).permit(:name, :address, :telephone,:business, :note, :president)
+    end
+
+    def key_str
+      SecureRandom.urlsafe_base64(5)
     end
 end
