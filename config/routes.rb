@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get ':parse_string' => 'cards#index'
+
   get 'help' => 'help#index'
   get 'about' => 'about#index'
 
