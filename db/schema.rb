@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140928215940) do
+ActiveRecord::Schema.define(version: 20140928225014) do
 
   create_table "cards", force: true do |t|
     t.string   "parse_string"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140928215940) do
     t.string   "president"
     t.binary   "icon"
     t.string   "icon_content_type"
+    t.string   "parse_string"
   end
 
   add_index "firms", ["user_id"], name: "index_firms_on_user_id"
