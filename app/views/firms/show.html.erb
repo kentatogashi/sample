@@ -159,6 +159,8 @@
   <dd><%= @firm.business %></dd>
   <dt><strong><%= model_class.human_attribute_name(:note) %>:</strong></dt>
   <dd><%= @firm.note %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:parse_string) %>:</strong></dt>
+  <dd><%= link_to root_url + @firm.parse_string, root_url + @firm.parse_string %></dd>
 </dl>
 
 <div class="form-actions">
