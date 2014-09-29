@@ -16,3 +16,6 @@
 /tmp
 # Ignore all assets generated with assets pipe line
 /public/assets/*
+
+# Ignore tags for ctags
+/tags
