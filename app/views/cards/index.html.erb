@@ -10,7 +10,7 @@ div#card-wrapper {
   margin: 0 auto;
   width: 100%;
   height: 480px;
-  border: 1px solid #000;
+  #border: 1px solid #000;
   background-color: #F8F8F8;
 }
 
@@ -18,12 +18,12 @@ div#card-background {
   text-align: center;
   position: relative;
   #background-image: url('wood-background.jpg');
-  border: 1px solid #000;
+  #border: 1px solid #000;
   background-color: #E8E8E8;
 }
 
 div#top-part {
-  border: 1px solid #000;
+  #border: 1px solid #000;
   background-color: #D8D8D8;
 }
 
@@ -46,15 +46,15 @@ div#top-part {
     <p>BACKGROUND</p>
     <div id="top-part">
       <p>TOPPART</p>
-      <div id="image"><%= image_tag "/firms/9/icon", size: "200x200" %></div>
-      <div id="president"><span>代表: おじさん</span></div>
-      <div id="company"><span>@株式会社ダミーおじさん</span></div>
+      <div id="image"><%= image_tag "/firms/" + @card[0].id.to_s + "/icon", size: "200x200" %></div>
+      <div id="president"><span>President: <%= @card[0].president %></span></div>
+      <div id="company"><span>@<%= @card[0].name %></span></div>
     </div>
     <div id="middle-part">
       <p>MIDDLEPART</p>
-      <p>住所: 東京都千代田区1-2-3-4</p>
-      <p>電話番号: 1234-5678-9999</p>
-      <p>メール: dummy@example.com</p>
+      <p>Address: <%= @card[0].address %></p>
+      <p>Telephone: <%= @card[0].telephone %></p>
+      <p>Mail: dummy@example.com</p>
     </div>
   </div>
 </div>
