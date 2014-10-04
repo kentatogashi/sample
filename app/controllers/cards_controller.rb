@@ -3,7 +3,7 @@ class CardsController < ApplicationController
     @card = Firm.where(:parse_string  => params[:parse_string])
     logger = Logger.new("/home/vagrant/sample/log/development.log")
     logger.debug(@card)
-    render 'index'
+    render 'index', :layout => false
   end
 
   def show
