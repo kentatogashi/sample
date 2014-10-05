@@ -1,4 +1,6 @@
 class FirmsController < ApplicationController
+  before_action :valid_user?
+
     def index
         @firms = Firm.where(:user_id => current_user.id.to_i) 
     end
@@ -51,6 +53,10 @@ class FirmsController < ApplicationController
 
     def card
         render 'card'
+    end
+
+    def valid_user?
+        redirect_to root_path if !signed_in?
     end
 
     private
