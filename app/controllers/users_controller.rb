@@ -27,13 +27,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    
-      if @user.save
-          sign_in(@user)
-          redirect_to @user
-      else
-          render 'new'
-      end
+
+    if @user.valid? and @user.save
+      sign_in(@user)
+      redirect_to @user
+    else 
+      render 'new'
+    end
+
   end
 
   # PATCH/PUT /users/1
