@@ -50,7 +50,7 @@ div#top-part {
     <p>BACKGROUND</p>
     <div id="top-part">
       <p>TOPPART</p>
-      <div id="image"><%= image_tag "/firms/" + @card[0].id.to_s + "/icon", size: "160x160" %></div>
+      <div id="image"><%= image_tag icon_firm_path(@card[0]), size: "160x160" %></div>
       <div id="president"><span>President: <%= @card[0].president %></span></div>
       <div id="company"><span>@<%= @card[0].name %></span></div>
     </div>

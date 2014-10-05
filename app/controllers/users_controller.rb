@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update]
-  before_action :valid_user?
+  before_action :valid_user?, except: [:new, :create]
 
   # GET /users
   # GET /users.json

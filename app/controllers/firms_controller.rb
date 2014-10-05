@@ -1,5 +1,5 @@
 class FirmsController < ApplicationController
-  before_action :valid_user?
+  before_action :valid_user?, except: ['icon']
 
     def index
         @firms = Firm.where(:user_id => current_user.id.to_i) 
