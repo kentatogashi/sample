@@ -33,6 +33,9 @@ class FirmsController < ApplicationController
 
     def update
         @firm = Firm.find(params[:id])
+        @firm.user_id = current_user.id.to_i
+        @firm.icon = params[:firm][:icon].read
+        @firm.icon_content_type = params[:firm][:icon].content_type
         if @firm.update_attributes(firm_params)
             flash[:success] = "Profile changed"
             redirect_to @firm
