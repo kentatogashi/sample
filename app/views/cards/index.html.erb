@@ -31,14 +31,18 @@ div#top-part {
   border: 1px solid #D8D8D8;
   border-radius: 50%;
   box-shadow: 1px 1px 10px 1px;
+  margin-bottom: 10px;
 }
 #president span{
-  line-height: -13px;
-  font-size: 24px;
+  font-size: 22px;
 }
 
+#company span{
+  font-size: 18px;
+  }
 #middle-part {
   background-color: #C8C8C8;
+  font-size: 18px;
 }
 </style>
 <div id="card-wrapper">
@@ -46,7 +50,7 @@ div#top-part {
     <p>BACKGROUND</p>
     <div id="top-part">
       <p>TOPPART</p>
-      <div id="image"><%= image_tag "/firms/" + @card[0].id.to_s + "/icon", size: "200x200" %></div>
+      <div id="image"><%= image_tag "/firms/" + @card[0].id.to_s + "/icon", size: "160x160" %></div>
       <div id="president"><span>President: <%= @card[0].president %></span></div>
       <div id="company"><span>@<%= @card[0].name %></span></div>
     </div>
