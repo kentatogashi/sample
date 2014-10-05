@@ -15,11 +15,15 @@ class FirmsController < ApplicationController
     def create 
         @firm = Firm.new(firm_params)
         @firm.user_id = current_user.id.to_i
-        @firm.icon = params[:firm][:icon].read
-        @firm.icon_content_type = params[:firm][:icon].content_type
+
+        unless params[:firm][:icon].to_s.empty?
+          @firm.icon = params[:firm][:icon].read
+          @firm.icon_content_type = params[:firm][:icon].content_type
+        end
+
         @firm.parse_string = key_str
 
-        if @firm.save 
+        if @firm.valid? and @firm.save 
             flash[:success] = "Welcome to the sample App!!"
             redirect_to @firm
         else
